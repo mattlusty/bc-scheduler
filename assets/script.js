@@ -41,15 +41,15 @@ function render(times) {
     var thisHour = now.hour();
     var diff = time[0] - thisHour;
 
-    var color;
+    var relativeTime;
     if (diff < 0) {
-      color = "lightGrey";
+      relativeTime = "past";
     } else if (diff == 0) {
-      color = "pink";
+      relativeTime = "present";
     } else {
-      color = "lightGreen";
+      relativeTime = "future";
     }
-    timeBlock.children(".description").css("background-color", color);
+    timeBlock.children(".description").addClass(relativeTime);
 
     container.append(timeBlock);
   });
