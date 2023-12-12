@@ -1,8 +1,9 @@
 var now = dayjs();
 
-$("#currentDay").text(now);
+$("#currentDay").text(now.format("dddd"));
 
 var container = $(".container");
+
 var times = [
   [9, "9AM"],
   [10, "10AM"],
@@ -20,7 +21,7 @@ var times = [
 
 function createTimeBlock(hour, timeText, content) {
   var timeBlock = $("<div>").addClass("time-block row").attr("id", hour);
-  var hour = $("<div>").addClass("hour col-2").text(timeText);
+  var hour = $("<div>").addClass("hour col-2 p-3").text(timeText);
   var textArea = $("<textarea>").addClass("description col").text(content);
   var button = $("<button>").addClass("saveBtn col-2").text("SAVE");
   timeBlock.append(hour).append(textArea).append(button);
