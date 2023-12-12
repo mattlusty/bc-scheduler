@@ -1,7 +1,5 @@
 var now = dayjs();
 
-now = dayjs("Tue Dec 12 2023 14:05:39 GMT+0000");
-
 $("#currentDay").text(now.format("dddd"));
 
 var container = $(".container");
