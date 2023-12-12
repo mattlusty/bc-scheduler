@@ -27,8 +27,9 @@ function createTimeBlock(hour, timeText) {
   return timeBlock;
 }
 
-times.forEach((time) => {
+times.forEach((time, index) => {
   var timeBlock = createTimeBlock(time[0], time[1]);
+  timeBlock.attr("data-index", index);
 
   var thisHour = now.hour();
   var diff = time[0] - thisHour;
@@ -44,4 +45,12 @@ times.forEach((time) => {
   timeBlock.children(".description").css("background-color", color);
 
   container.append(timeBlock);
+});
+
+container.on("click", ".saveBtn", function (event) {
+  var timeBlock = $(event.target).parent();
+  var index = timeBlock.attr("data-index");
+  var value = timeBlock.children(".description").val();
+  times[index][2] = value;
+  localStorage.setItem("data", JSON.stringify(times));
 });
