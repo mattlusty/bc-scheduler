@@ -25,12 +25,6 @@ function createTimeBlock(hour, timeText, content) {
   return timeBlock;
 }
 
-function init() {
-  var data = localStorage.getItem("data");
-  if (data) times = JSON.parse(data);
-  render(times);
-}
-
 function render(times) {
   times.forEach((time, index) => {
     var timeBlock = createTimeBlock(time[0], time[1], time[2]);
@@ -60,5 +54,11 @@ container.on("click", ".saveBtn", function (event) {
   times[index][2] = value;
   localStorage.setItem("data", JSON.stringify(times));
 });
+
+function init() {
+  var data = localStorage.getItem("data");
+  if (data) times = JSON.parse(data);
+  render(times);
+}
 
 init();
