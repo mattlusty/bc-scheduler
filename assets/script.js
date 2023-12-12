@@ -1,5 +1,7 @@
 var now = dayjs();
 
+now = dayjs("Tue Dec 12 2023 14:05:39 GMT+0000");
+
 $("#currentDay").text(now.format("dddd"));
 
 var container = $(".container");
@@ -14,9 +16,6 @@ var times = [
   [15, "3PM"],
   [16, "4PM"],
   [17, "5PM"],
-  [21, "9PM"],
-  [22, "10PM"],
-  [23, "11PM"],
 ];
 
 function createTimeBlock(hour, timeText, content) {
